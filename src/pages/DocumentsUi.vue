@@ -25,13 +25,13 @@
 <script lang="ts" setup>
   import { storeToRefs } from 'pinia'
 
-  import BaseCard from './components/BaseCard.vue'
-  import InputField from './components/InputField.vue'
-  import DocumentsList from './components/DocumentsList.vue'
-  import DocumentPreview from './components/DocumentPreview.vue'
-  import { useCurrentDocumentStore } from '@/stores/currentDocumentStore'
+  import BaseCard from '../entities/BaseCardUi.vue'
+  import InputField from '../entities/SearchedValueUi.vue'
+  import DocumentsList from '../widgets/DocumentsListUi.vue'
+  import DocumentPreview from '../widgets/DocumentPreviewUi.vue'
+  import { useCurrentDocumentModel } from '../widgets/currentDocumentModel'
 
-  const { currentDocument } = storeToRefs(useCurrentDocumentStore())
+  const { currentDocument } = storeToRefs(useCurrentDocumentModel())
 </script>
 
 <style>

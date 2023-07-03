@@ -5,7 +5,7 @@ type TSearchedValueState = {
   searchedValue: string
 }
 
-export const useSearchedValueStore = defineStore('searchedValue', {
+export const useSearchedValueModel = defineStore('searchedValue', {
   state: (): TSearchedValueState => ({ searchedValue: '' }),
   getters: {
     get:(state)=> state.searchedValue,

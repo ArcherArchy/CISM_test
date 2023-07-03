@@ -6,7 +6,7 @@ type TDocumentsState = {
   documents: TDocumentsModel[]
 }
 
-export const useDocumentsStore = defineStore('documents', {
+export const useDocumentsModel = defineStore('documents', {
   state: (): TDocumentsState => ({ documents: [] }),
   getters: {
     get:(state)=> state.documents,

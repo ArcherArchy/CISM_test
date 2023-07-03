@@ -6,7 +6,7 @@
           <el-image :src="document.loadedImage?.imageUrl" fit="cover"  />
         </template>
         <template #right >
-          <div v-on:click="()=>currentDocumentStore.update(document)" >
+          <div v-on:click="()=>currentDocumentModel.update(document)" >
             <el-row :gutter="0"  v-on:click=""> 
               <h5 class="grid-text-margin">{{document.name}}</h5>
             </el-row> 
@@ -35,19 +35,19 @@ import axios from 'axios'
 import { storeToRefs } from 'pinia'
 import { ElMessage } from 'element-plus'
 
-import BaseCard from './BaseCard.vue'
-import notFoundImg from "../../assets/img/notfound.jpg"
-import { useSearchedValueStore } from '@/stores/searchedValueStore';
-import { useDocumentsStore } from '@/stores/documentsStore';
-import {useCurrentDocumentStore} from '@/stores/currentDocumentStore'
+import notFoundImg from "../assets/img/notfound.jpg"
+import BaseCard from '../entities/BaseCardUi.vue'
+import { useSearchedValueModel } from '../entities/searchedValueModel';
+import { useDocumentsModel } from './documentsModel';
+import {useCurrentDocumentModel} from './currentDocumentModel'
 import type { TDocumentsModel } from '@/types';
 
-const {searchedValue}  = storeToRefs(useSearchedValueStore());
-const documentsStore = useDocumentsStore()
-const {documents} = storeToRefs(documentsStore)
+const {searchedValue}  = storeToRefs(useSearchedValueModel());
+const documentsModel = useDocumentsModel()
+const {documents} = storeToRefs(documentsModel)
 const documnentsRef = documents
-const currentDocumentStore = useCurrentDocumentStore()
-const {currentDocument} = storeToRefs(currentDocumentStore) 
+const currentDocumentModel = useCurrentDocumentModel()
+const {currentDocument} = storeToRefs(currentDocumentModel) 
 const currentDocumentRef = currentDocument 
 
 
@@ -81,7 +81,7 @@ async function useDocuments(searchedValue:string): Promise<void> {
       documentsResponse[document_index].loadedImage = await getImage(documentsResponse[0].image)
     }
   } 
-  documentsStore.update(documentsResponse) 
+  documentsModel.update(documentsResponse) 
 }
 
 

@@ -8,11 +8,11 @@
     <h3>Результаты</h3>
   </div>
 </template>
-<!-- :input="(value: string | number)=>searchedValueStore.update(String(value))" -->
+
 <script lang="ts" setup>
-import { useSearchedValueStore } from '@/stores/searchedValueStore';
+import { useSearchedValueModel } from './searchedValueModel';
 import { storeToRefs } from "pinia";
 
-const { searchedValue } = storeToRefs(useSearchedValueStore());
+const { searchedValue } = storeToRefs(useSearchedValueModel());
 
 </script>

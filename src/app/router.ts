@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import DocumentsView from '../views/DocumentsView.vue'
+import DocumentsPage from '../pages/DocumentsUi.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -8,7 +8,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'documents',
-      component: DocumentsView
+      component: DocumentsPage
     }
   ]
 })

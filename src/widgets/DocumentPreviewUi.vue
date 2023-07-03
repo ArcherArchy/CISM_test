@@ -41,10 +41,10 @@ import axios from 'axios'
 import {ElMessage} from 'element-plus'
 import _ from 'lodash'
 
-import { useCurrentDocumentStore } from '@/stores/currentDocumentStore'
+import { useCurrentDocumentModel } from './currentDocumentModel'
 
-const currentDocumentStore = useCurrentDocumentStore()
-const { currentDocument } = storeToRefs(currentDocumentStore)
+const currentDocumentModel = useCurrentDocumentModel()
+const { currentDocument } = storeToRefs(currentDocumentModel)
 
 const currentDocumentRef = currentDocument
 const fileUrl = ref('')
@@ -61,7 +61,7 @@ function deleteDocument(): void {
     axios.delete(currentDocumentRef.value?.image)
     const currentDocumentWithDeletedImg = currentDocumentRef.value
     delete currentDocumentWithDeletedImg['loadedImage']
-    currentDocumentStore.update(currentDocumentWithDeletedImg)
+    currentDocumentModel.update(currentDocumentWithDeletedImg)
   } catch (err) {
     ElMessage.error(`Image removal error: ${err}`)
   }
