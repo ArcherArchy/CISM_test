@@ -1,0 +1,15 @@
+@font-face {
+  font-family: "Montserrat";
+  src: local("Montserrat"),
+   url(./assets/fonts/Montserrat-VariableFont_wght.ttf) format("truetype");
+}
+
+#app {
+  font-weight: normal;
+  font-family: "Montserrat";
+}
+
+.content-sides-margin{
+  margin-left: 1em;
+  margin-right: 1em
+}
